@@ -7,11 +7,12 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonEasy"
         android:layout_width="0dp"
         android:layout_height="100dp"
         android:layout_marginTop="100dp"
         android:layout_marginBottom="591dp"
+        android:onClick="Easy"
         android:text="@string/pocz_tkuj_cy"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,65 +22,67 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/buttonHard"
         android:layout_width="0dp"
         android:layout_height="100dp"
         android:layout_marginTop="100dp"
         android:layout_marginBottom="200dp"
+        android:onClick="Hard"
         android:text="@string/zaawansowany"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/buttonEasy"
         app:layout_constraintVertical_bias="0.496" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/buttonPro"
         android:layout_width="0dp"
         android:layout_height="100dp"
         android:layout_marginTop="90dp"
+        android:onClick="pro"
         android:text="@string/pro"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2"
+        app:layout_constraintTop_toBottomOf="@+id/buttonHard"
         app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/imageViewEasy"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="#00000000"
         android:contentDescription="TODO"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/buttonEasy"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/cwicz" />
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imageViewHard"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/buttonHard"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button"
-        app:srcCompat="@drawable/cwiczeniaPocz"
+        app:layout_constraintTop_toBottomOf="@+id/buttonEasy"
+        app:srcCompat="@drawable/poczatkujacy"
         android:contentDescription="TODO" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/imageViewPro"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintBottom_toTopOf="@+id/buttonPro"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2"
+        app:layout_constraintTop_toBottomOf="@+id/buttonHard"
         app:srcCompat="@drawable/koks" />
 
 
