@@ -3,6 +3,7 @@ package com.example.sportapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -16,6 +17,8 @@ public class Stoper extends AppCompatActivity {
     TextView TimerText;
     ImageView trainingImageView;
     Button StartButton;
+    MediaPlayer applouse;
+    MediaPlayer bipSound;
     boolean running;
     boolean isTraining=true;
     private CountDownTimer countDownTimer;
@@ -31,6 +34,9 @@ public class Stoper extends AppCompatActivity {
         StartButton = findViewById(R.id.StartButton);
         TopicTextView = findViewById(R.id.TopicTextView);
         trainingImageView = findViewById(R.id.DeskaImageView);
+        applouse = MediaPlayer.create(Stoper.this,R.raw.applouse);
+        bipSound = MediaPlayer.create(Stoper.this,R.raw.bip);
+
 
         TopicTextView.setText("Trening początkujący" + "\n" + seria+ "/" + "5" );
 
@@ -47,7 +53,7 @@ public class Stoper extends AppCompatActivity {
 
     ////////////////////////////Metody/////////////////////////////////////////
 
-    /// Timer
+    /// Stoper
     public void startTimer(){
         countDownTimer = new CountDownTimer(this.timeLeft,1000){
 
@@ -61,6 +67,7 @@ public class Stoper extends AppCompatActivity {
             public void onFinish() {
                 if(isTraining){
                     restTimer();
+
                 }
                 else{
                     seriaTimer();
@@ -121,6 +128,7 @@ public class Stoper extends AppCompatActivity {
     public void seriaTimer(){
         if(seria <=5){
             TopicTextView.setText("Trening początkujący" + "\n" + seria+ "/" + "5" );
+            bipSound.start();                                                           //powiadomienie
             trainingImageView.setImageResource(R.drawable.deska);
             timeLeft = 30000;
             updateTimerText();
@@ -131,7 +139,9 @@ public class Stoper extends AppCompatActivity {
         else{
             TopicTextView.setText("Udało Ci się! \n Ukończyłeś trening!");
             trainingImageView.setImageResource(R.drawable.pucahr);
+            applouse.start();
             StartButton.setText("powrót");
+            TimerText.setVisibility(TextView.INVISIBLE);                //ukrywamy stoper
             StartButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
