@@ -2,18 +2,22 @@ package com.example.sportapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class Stoper extends AppCompatActivity {
 
     TextView TopicTextView;
     TextView TimerText;
+    ImageView trainingImageView;
     Button StartButton;
     boolean running;
+    boolean isTraining=true;
     private CountDownTimer countDownTimer;
     public long timeLeft = 30000; // 30 sec
     private int seria = 1;
@@ -26,6 +30,7 @@ public class Stoper extends AppCompatActivity {
         TimerText = findViewById(R.id.TimerText);
         StartButton = findViewById(R.id.StartButton);
         TopicTextView = findViewById(R.id.TopicTextView);
+        trainingImageView = findViewById(R.id.DeskaImageView);
 
         TopicTextView.setText("Trening początkujący" + "\n" + seria+ "/" + "5" );
 
@@ -54,7 +59,12 @@ public class Stoper extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                odpoczynek();
+                if(isTraining){
+                    restTimer();
+                }
+                else{
+                    seriaTimer();
+                }
 
             }
 
@@ -65,6 +75,8 @@ public class Stoper extends AppCompatActivity {
     }
 
 
+
+/////////////Funkcje Stopera//////////////
     public void startStop (){
        if(running){
            stopTimer();
@@ -93,16 +105,48 @@ public class Stoper extends AppCompatActivity {
         
         TimerText.setText(timeLeftText);            // tworzymy zmienna tekstowa do wyswietlania czasu i przypisujemy textVIew
    }
-   public void odpoczynek(){
+   /////odpoczynek
+   public void restTimer(){
 
        TopicTextView.setText("Czas na odpoczynek");
+       trainingImageView.setImageResource(R.drawable.woda);
        timeLeft = 20000;
        updateTimerText();
        startTimer();
        running = true;
        seria += 1;
+       isTraining=false;
    }
+   //////seria
+    public void seriaTimer(){
+        if(seria <=5){
+            TopicTextView.setText("Trening początkujący" + "\n" + seria+ "/" + "5" );
+            trainingImageView.setImageResource(R.drawable.deska);
+            timeLeft = 30000;
+            updateTimerText();
+            startTimer();
+            running = true;
+            isTraining=true;
+        }
+        else{
+            TopicTextView.setText("Udało Ci się! \n Ukończyłeś trening!");
+            trainingImageView.setImageResource(R.drawable.pucahr);
+            StartButton.setText("powrót");
+            StartButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    moveToMainActivity();
+                }
+            });
 
+
+        }
+    }
+    /////////////////// powrót do menu////////////////////
+    private void moveToMainActivity(){
+        Intent intent = new Intent(Stoper.this, MainActivity.class);
+        startActivity(intent);
+    }
 
 
 

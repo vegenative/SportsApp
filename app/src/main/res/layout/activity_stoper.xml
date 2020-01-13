@@ -11,7 +11,6 @@
         android:layout_width="142dp"
         android:layout_height="79dp"
         android:layout_marginBottom="32dp"
-        android:onClick="startTimer"
         android:text="Start"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,4 +40,15 @@
         app:layout_constraintBottom_toTopOf="@+id/StartButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/DeskaImageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/TimerText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TopicTextView"
+        app:srcCompat="@drawable/deska" />
 </androidx.constraintlayout.widget.ConstraintLayout>
