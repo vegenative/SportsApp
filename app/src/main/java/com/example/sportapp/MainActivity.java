@@ -30,6 +30,18 @@ public class MainActivity extends AppCompatActivity {
                 moveToStoper();
             }
         });
+        buttonHard.setOnClickListener(new View.OnClickListener() { //dodanie funkcji button przejścia Stopera
+            @Override
+            public void onClick(View v) {
+                moveToStoper();
+            }
+        });
+        buttonPRo.setOnClickListener(new View.OnClickListener() { //dodanie funkcji button przejścia Stopera
+            @Override
+            public void onClick(View v) {
+                moveToStoper();
+            }
+        });
 
 
     }

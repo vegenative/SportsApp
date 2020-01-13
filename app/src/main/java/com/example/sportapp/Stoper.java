@@ -126,10 +126,30 @@ public class Stoper extends AppCompatActivity {
    }
    //////seria
     public void seriaTimer(){
-        if(seria <=5){
+        if(seria <=5 && seria!=2 && seria!=4 ){
             TopicTextView.setText("Trening początkujący" + "\n" + seria+ "/" + "5" );
             bipSound.start();                                                           //powiadomienie
             trainingImageView.setImageResource(R.drawable.deska);
+            timeLeft = 30000;
+            updateTimerText();
+            startTimer();
+            running = true;
+            isTraining=true;
+        }
+        else if(seria == 2 ){
+            TopicTextView.setText("Trening początkujący" + "\n" + seria+ "/" + "5" );
+            bipSound.start();                                                           //powiadomienie
+            trainingImageView.setImageResource(R.drawable.pompki);
+            timeLeft = 30000;
+            updateTimerText();
+            startTimer();
+            running = true;
+            isTraining=true;
+        }
+        else if(seria == 4 ){
+            TopicTextView.setText("Trening początkujący" + "\n" + seria+ "/" + "5" );
+            bipSound.start();                                                           //powiadomienie
+            trainingImageView.setImageResource(R.drawable.brzuszki);
             timeLeft = 30000;
             updateTimerText();
             startTimer();
