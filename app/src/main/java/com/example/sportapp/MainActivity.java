@@ -30,16 +30,14 @@ public class MainActivity extends AppCompatActivity {
                 moveToStoper();
             }
         });
-        
+
 
     }
-
+// Stoper
     private void moveToStoper(){
         Intent intent = new Intent(MainActivity.this, Stoper.class);
         startActivity(intent);
     }
 
-    public Button getButtonEasy() {
-        return buttonEasy;
-    }
+
 }
